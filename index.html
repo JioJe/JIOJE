@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jioje的AIGC世界</title>
+    
+    <!-- 预加载关键字体 -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+    
+    <!-- 添加进度条样式 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- 添加错误处理样式 -->
+    <style>
+        .error-message {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 0, 0, 0.9);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <!-- 加载进度条 -->
+    <div id="progress-bar" class="progress-bar"></div>
+
+    <!-- 错误提示 -->
+    <div class="error-message" id="error-message"></div>
+
+    <!-- 移动端导航菜单按钮 -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo" id="logo-link" style="cursor: pointer;">Jioje的AIGC世界</div>
+            <ul class="nav-links">
+                <li><a href="./image.html" target="_blank" id="image-link">IMAGE</a></li>
+                <li><a href="#projects-section" id="projects-link">项目</a></li>
+                <li><a href="https://space.bilibili.com/356789468?spm_id_from=333.337.0.0" target="_blank">bilibili</a></li>
+                <li><a href="#footer" id="contact-link">联系我</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 加载动画 -->
+    <div class="loading-screen">
+        <div class="starlight">
+            <div class="star-center"></div>
+            <div class="star-rays"></div>
+        </div>
+    </div>
+
+    <!-- 星空背景 -->
+    <div class="starry-background"></div>
+
+    <!-- 主要内容 -->
+    <div class="content-wrapper">
+        <!-- 顶部滚动轮播图 -->
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <a href="https://github.com/JioJe" target="_blank" class="slide-link" data-title="点击访">
+                        <img src="images/slide1.jpg" alt="GitHub主页" class="slide-img">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="https://github.com/JioJe" target="_blank" class="slide-link" data-title="点击访问">
+                        <img src="images/slide2.jpg" alt="LinkedIn主页" class="slide-img">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="https://github.com/JioJe" target="_blank" class="slide-link" data-title="点击访问">
+                        <img src="images/slide3.jpg" alt="项目1" class="slide-img">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="https://github.com/JioJe" target="_blank" class="slide-link" data-title="点击访问">
+                        <img src="images/slide4.jpg" alt="项目2" class="slide-img">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="https://github.com/JioJe" target="_blank" class="slide-link" data-title="点击访问">
+                        <img src="images/slide5.jpg" alt="博客文章1" class="slide-img">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="https://github.com/JioJe" target="_blank" class="slide-link" data-title="点击访问">
+                        <img src="images/slide6.jpg" alt="博客文章2" class="slide-img">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="https://github.com/JioJe" target="_blank" class="slide-link" data-title="点击访问">
+                        <img src="images/slide7.jpg" alt="项目3" class="slide-img">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="https://github.com/JioJe" target="_blank" class="slide-link" data-title="点击访问">
+                        <img src="images/slide8.jpg" alt="项目4" class="slide-img">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="https://github.com/JioJe" target="_blank" class="slide-link" data-title="点击访问">
+                        <img src="images/slide9.jpg" alt="博客文章3" class="slide-img">
+                    </a>
+                </div>
+            </div>
+            <button class="slider-button prev">&#10094;</button>
+            <button class="slider-button next">&#10095;</button>
+            
+            <!-- 添加加载失败提示 -->
+            <div class="slider-error">
+                <p>图片加载失败，请刷新页面重试</p>
+            </div>
+        </div>
+
+        <!-- 主要内容区域 -->
+        <main class="content">
+            <!-- 在内容区域添加视差效果 -->
+            <div class="parallax-container">
+                <h1 class="fade-in parallax-element" data-speed="0.3">
+                    Jioje的AIGC世界
+                </h1>
+            </div>
+
+            <div class="parallax-container">
+                <section class="info-section fade-in scroll-fade parallax-element" data-speed="0.5">
+                    <h2>关于我</h2>
+                    <p>热爱AI，追求创新。致力于将想法转化为现实。在这里，我将分享我的项目、想法和经验。</p>
+                </section>
+            </div>
+            
+            <!-- 添加更多内容区块 -->
+            <section class="projects-section scroll-fade" id="projects-section">
+                <h2>最新项目</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/1.png" alt="ComfyUI项目" class="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>ComfyUI 项目</h3>
+                            <p>ComfyUI是一个功能强大的AI图像生成工具，提供了灵活的节点式工作流程通过该项目，我实现了：</p>
+                            <ul>
+                                <li>图像相关行业日常工作效率提升50%以上</li>
+                                <li>打破传统商业产品开发设计思路，创新新型项目</li>
+                                <li>实现摄影级、商业级图像的批量生成</li>
+                                <li>产品全自动ai化，节省人力成本</li>
+                            </ul>
+                            <a href="https://github.com/JioJe" class="project-link ripple">了解更多</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/2.png" alt="SD和MJ项目" class="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>SD & Midjourney </h3>
+                            <p>Stable Diffusion和Midjourney是当前流行的AI绘画工具。在这个项目中，我实现了：</p>
+                            <ul>
+                                <li>为设计从业人员���升效率和赋能</li>
+                                <li>增加艺术能力多样性和创作能力高能化</li>
+                                <li>多项目、跨行业应用</li>
+                            </ul>
+                            <a href="https://github.com/JioJe" class="project-link ripple">了解更多</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/3.png" alt="AI视频项目" class="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3>AI视频</h3>
+                            <p>探索可灵AI和海螺AI等视频生成工具的应用。我的成果包括：</p>
+                            <ul>
+                                <li>数字人视频制作</li>
+                                <li>AI配音与口型同步</li>
+                                <li>场景动画生成</li>
+                            </ul>
+                            <a href="https://github.com/JioJe" class="project-link ripple">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer" id="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>联系方式</h3>
+                    <p>Email: fxj1131@gmail.com</p>
+                    <p>GitHub: @JioJe</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#projects-section">项目展示</a></li>
+                        <li><a href="#blog">技术博客</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>订阅更新</h3>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="输入您的邮箱">
+                        <button type="submit">订阅</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Jioje的AIGC世界 · All rights reserved</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 在其他脚本之前添加语言文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
